@@ -12,7 +12,7 @@ const (
 
 // Space defines spaces on a Go board.
 type Space struct {
-	occupiedBy Player
+	OccupiedBy Player
 }
 
 // Row is an array of 19 Spaces.
@@ -28,7 +28,7 @@ type Board struct {
 
 // IsOccupied returns true if no Players occupy the space.
 func (s *Space) IsOccupied() bool {
-	return s.occupiedBy > 0
+	return s.OccupiedBy > 0
 }
 
 // Occupy will fill an unoccupied space with a
@@ -38,13 +38,13 @@ func (s *Space) Occupy(p Player) error {
 	if s.IsOccupied() {
 		return fmt.Errorf("space is taken")
 	}
-	s.occupiedBy = p
+	s.OccupiedBy = p
 	return nil
 }
 
 func (s Space) String() string {
 	if s.IsOccupied() {
-		return fmt.Sprint(s.occupiedBy)
+		return fmt.Sprint(s.OccupiedBy)
 	}
 	return "0"
 }
