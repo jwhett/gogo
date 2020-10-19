@@ -30,6 +30,15 @@ func TestSpace_Occupy(t *testing.T) {
 	t.Logf("Occupied by: %d", s)
 }
 
+func TestSpace_OccupyFailure(t *testing.T) {
+	var s gogo.Space
+	s.Occupy(gogo.BLACK)
+	err := s.Occupy(gogo.WHITE)
+	if err == nil {
+		t.Fatal("No error when trying to play in an occupied Space.")
+	}
+}
+
 func TestRow(t *testing.T) {
 	var r gogo.Row
 	if len(r.Spaces) != 19 {
