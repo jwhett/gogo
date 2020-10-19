@@ -6,7 +6,7 @@ import (
 	"github.com/jwhett/gogo"
 )
 
-func TestSpace(t *testing.T) {
+func TestSpace_Init(t *testing.T) {
 	var s gogo.Space
 	if s.IsOccupied() {
 		t.Fatal("Space didn't initialize to zero")
