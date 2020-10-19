@@ -59,7 +59,7 @@ func (b *Board) Show() {
 // GetSpace attempts to return a Space from a given
 // set of coordinates.
 func (b *Board) GetSpace(coords string) (*Space, error) {
-	x, y, parseErr := parseCoordinates(coords)
+	x, y, parseErr := ParseCoordinates(coords)
 	if parseErr != nil {
 		return nil, parseErr
 	}
@@ -79,9 +79,17 @@ func (b *Board) PlayMove(p Player, m string) error {
 	return nil
 }
 
-func parseCoordinates(s string) (x int, y int, err error) {
+// ParseCoordinates is a helper function to parse
+// NX[|X] coordinates.
+func ParseCoordinates(s string) (int, int, error) {
 	// split NXX move into X,Y
-	x = strings.Index(letters, s[:1]) + 1
-	y, err = strconv.Atoi(s[1:])
-	return
+	x := strings.Index(letters, s[:1]) + 1
+	y, err := strconv.Atoi(s[1:])
+	if (x < 0) || (x > 19) {
+		return 0, 0, fmt.Errorf("X is not a possible coordinate")
+	}
+	if (y < 0) || (y > 19) {
+		return 0, 0, fmt.Errorf("Y is not a possible coordinate")
+	}
+	return x, y, err
 }

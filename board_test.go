@@ -67,3 +67,36 @@ func TestBoard_PlayMove(t *testing.T) {
 		t.Fatal("Didn't receive error when playing, but space is not occupied...")
 	}
 }
+
+func TestParseCoordinates_Simple(t *testing.T) {
+	x, y, err := gogo.ParseCoordinates("A1")
+	if err != nil {
+		t.Fatalf("Error while parsing A1: %v", err)
+	}
+	if x != 1 {
+		t.Fatalf("Failed to map A to 1. Got: %d", x)
+	}
+	if y != 1 {
+		t.Fatalf("Failed to properly set y coord to 1. Got: %d", y)
+	}
+}
+
+func TestParseCoordinates_Complex(t *testing.T) {
+	x, y, err := gogo.ParseCoordinates("S19")
+	if err != nil {
+		t.Fatalf("Error while parsing S19: %v", err)
+	}
+	if x != 19 {
+		t.Fatalf("Failed to map S to 19. Got: %d", x)
+	}
+	if y != 19 {
+		t.Fatalf("Failed to properly set y coord to 19. Got: %d", y)
+	}
+}
+
+func TestParseCoordinates_OOB(t *testing.T) {
+	_, _, err := gogo.ParseCoordinates("T20")
+	if err == nil {
+		t.Fatal("Didn't fail when out of bounds")
+	}
+}
