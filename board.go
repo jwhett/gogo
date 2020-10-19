@@ -76,6 +76,9 @@ func (b *Board) PlayMove(p Player, m string) error {
 		return err
 	}
 	s.Occupy(p)
+	if s.OccupiedBy == p {
+		return fmt.Errorf("Failed to play that move")
+	}
 	return nil
 }
 
