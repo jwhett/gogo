@@ -63,9 +63,7 @@ func (b *Board) GetSpace(coords string) (*Space, error) {
 	if parseErr != nil {
 		return nil, parseErr
 	}
-	row := b.Rows[x]
-	space := row.Spaces[y]
-	return &space, nil
+	return &b.Rows[x].Spaces[y], nil
 }
 
 // PlayMove will attempt to occupy a space
@@ -78,9 +76,6 @@ func (b *Board) PlayMove(p Player, m string) error {
 	occErr := s.Occupy(p)
 	if occErr != nil {
 		return occErr
-	}
-	if s.OccupiedBy != p {
-		return fmt.Errorf("Failed to play that move")
 	}
 	return nil
 }
