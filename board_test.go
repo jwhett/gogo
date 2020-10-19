@@ -37,37 +37,6 @@ func TestRow(t *testing.T) {
 	}
 }
 
-func TestBoard(t *testing.T) {
-	var b gogo.Board
-	if len(b.Rows) != 19 {
-		t.Fatalf("Board doesn't have 19 Rows: %d", len(b.Rows))
-	}
-}
-
-func TestBoard_GetSpace(t *testing.T) {
-	var b gogo.Board
-	s, err := b.GetSpace("A1")
-	if err != nil {
-		t.Fatalf("Failed to get space at A1")
-	}
-	if fmt.Sprintf("%T", s) != "*gogo.Space" {
-		t.Fatalf("Failed to return a Space - got %T instead", s)
-	}
-}
-
-func TestBoard_PlayMove(t *testing.T) {
-	var b gogo.Board
-	coords := "A1"
-	moveErr := b.PlayMove(gogo.BLACK, coords)
-	if moveErr != nil {
-		t.Fatalf("Failed to play move at %s. Error: %v", coords, moveErr)
-	}
-	space, _ := b.GetSpace(coords)
-	if !space.IsOccupied() {
-		t.Fatal("Didn't receive error when playing, but space is not occupied...")
-	}
-}
-
 func TestParseCoordinates_Simple(t *testing.T) {
 	x, y, err := gogo.ParseCoordinates("A1")
 	if err != nil {
@@ -98,5 +67,36 @@ func TestParseCoordinates_OOB(t *testing.T) {
 	_, _, err := gogo.ParseCoordinates("T20")
 	if err == nil {
 		t.Fatal("Didn't fail when out of bounds")
+	}
+}
+
+func TestBoard(t *testing.T) {
+	var b gogo.Board
+	if len(b.Rows) != 19 {
+		t.Fatalf("Board doesn't have 19 Rows: %d", len(b.Rows))
+	}
+}
+
+func TestBoard_GetSpace(t *testing.T) {
+	var b gogo.Board
+	s, err := b.GetSpace("A1")
+	if err != nil {
+		t.Fatalf("Failed to get space at A1")
+	}
+	if fmt.Sprintf("%T", s) != "*gogo.Space" {
+		t.Fatalf("Failed to return a Space - got %T instead", s)
+	}
+}
+
+func TestBoard_PlayMove(t *testing.T) {
+	var b gogo.Board
+	coords := "A1"
+	moveErr := b.PlayMove(gogo.BLACK, coords)
+	if moveErr != nil {
+		t.Fatalf("Failed to play move at %s. Error: %v", coords, moveErr)
+	}
+	space, _ := b.GetSpace(coords)
+	if !space.IsOccupied() {
+		t.Fatal("Didn't receive error when playing, but space is not occupied...")
 	}
 }
