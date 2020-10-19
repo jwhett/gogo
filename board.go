@@ -63,7 +63,7 @@ func (b *Board) GetSpace(coords string) (*Space, error) {
 	if parseErr != nil {
 		return nil, parseErr
 	}
-	return &b.Rows[x].Spaces[y], nil
+	return &b.Rows[x-1].Spaces[y-1], nil
 }
 
 // PlayMove will attempt to occupy a space
