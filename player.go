@@ -1,4 +1,4 @@
-package main
+package gogo
 
 // Player is either 1 (black) or 2 (white).
 type Player int

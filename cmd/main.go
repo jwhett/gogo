@@ -2,11 +2,13 @@ package main
 
 import (
 	"fmt"
+
+	gb "github.com/jwhett/gogo"
 )
 
 func main() {
-	var board Board
+	var board gb.board.Board
 	fmt.Printf("Black: %d\nWhite: %d\n", BLACK, WHITE)
-	board.PlayMove(BLACK, "D4")
+	board.PlayMove(BLACK, "A1")
 	board.Show()
 }
