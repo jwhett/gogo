@@ -24,12 +24,12 @@ type Board struct {
 }
 
 func (s Space) IsOccupied() bool {
-    return s.occupiedBy > 0
+	return s.occupiedBy > 0
 }
 
 func (s Space) String() string {
 	if s.IsOccupied() {
-		return string(s.occupiedBy)
+		return fmt.Sprint(s.occupiedBy)
 	} else {
 		return "0"
 	}
@@ -40,4 +40,3 @@ func (b Board) Show() {
 		fmt.Println(b.Rows[i])
 	}
 }
-
