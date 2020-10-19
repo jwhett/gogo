@@ -7,8 +7,8 @@ import (
 )
 
 func main() {
-	var board gb.board.Board
-	fmt.Printf("Black: %d\nWhite: %d\n", BLACK, WHITE)
-	board.PlayMove(BLACK, "A1")
+	var board gb.Board
+	fmt.Printf("Black: %d\nWhite: %d\n", gb.BLACK, gb.WHITE)
+	board.PlayMove(gb.BLACK, "A1")
 	board.Show()
 }
