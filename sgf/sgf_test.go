@@ -15,6 +15,13 @@ func TestFormatting_AP(t *testing.T) {
     }
 }
 
+// Test BlackPass
+func TestFormatting_BP(t *testing.T) {
+    if sgf.BlackPass != "B[]" {
+        t.Fatal("Formatting failed for: BlackPass")
+    }
+}
+
 // Test BlackRank
 func TestFormatting_BR(t *testing.T) {
     if fmt.Sprintf(sgf.BlackRank, "9d") != "BR[9d]" {
@@ -113,6 +120,14 @@ func TestFormatting_SZ(t *testing.T) {
         t.Fatal("Formatting failed for: Size")
     }
 }
+
+// Test WhitePass
+func TestFormatting_WP(t *testing.T) {
+    if sgf.WhitePass != "W[]" {
+        t.Fatal("Formatting failed for: WhitePass")
+    }
+}
+
 
 // Test WhiteRank
 func TestFormatting_WR(t *testing.T) {

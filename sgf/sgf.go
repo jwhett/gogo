@@ -7,6 +7,8 @@ const (
     // Application describes the application used
     // to generate the SGF file.
     Application string = "AP[%s]"
+    // BlackPass shows that the Black player passed.
+    BlackPass = "B[]"
     // BlackRank describes the player's rank.
     BlackRank = "BR[%s]"
     // Comment is a free-form comment string.
@@ -40,6 +42,8 @@ const (
     // Size is the size of the Go board. Standard, square sizes
     // are 9, 13, 19.
     Size = "SZ[%d]"
+    // WhitePass shows that the White player passed.
+    WhitePass = "W[]"
     // WhiteRank is the White player's rank.
     WhiteRank = "WR[%s]"
 )
