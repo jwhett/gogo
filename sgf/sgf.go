@@ -14,7 +14,7 @@ const (
     BlackRank = "BR[%s]"
     // Comment is a free-form comment string.
     Comment = "C[%s]"
-    // DateTime is the date and time of the game.
+    // DateTime is the date and time of the game. ISO date - YYYY-MM-DD.
     DateTime = "DT[%s]"
     // FileFormat describes the SGF version.
     FileFormat = "FF[%d]"

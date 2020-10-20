@@ -13,6 +13,7 @@ func TestFormatting_AP(t *testing.T) {
     if fmt.Sprintf(sgf.Application, "GoGo") != "AP[GoGo]" {
         t.Fatal("Formatting failed for: Application")
     }
+    t.Logf("Application: %s", fmt.Sprintf(sgf.Application, "GoGo"))
 }
 
 // Test BlackPass
@@ -20,6 +21,7 @@ func TestFormatting_BP(t *testing.T) {
     if sgf.BlackPass != "B[]" {
         t.Fatal("Formatting failed for: BlackPass")
     }
+    t.Logf("BlackPass: %s", sgf.BlackPass)
 }
 
 // Test BlackRank
@@ -27,6 +29,7 @@ func TestFormatting_BR(t *testing.T) {
     if fmt.Sprintf(sgf.BlackRank, "9d") != "BR[9d]" {
         t.Fatal("Formatting failed for: BlackRank")
     }
+    t.Logf("BlackRank: %s", fmt.Sprintf(sgf.BlackRank, "9d"))
 }
 
 // Test Comment
@@ -38,9 +41,9 @@ func TestFormatting_C(t *testing.T) {
 
 // Test DateTime
 func TestFormatting_DT(t *testing.T) {
-    testDate := time.Now()
-    if fmt.Sprintf(sgf.DateTime, testDate.Local()) != fmt.Sprintf("DT[%s]", testDate.Local()) {
-        t.Fatal("Formatting failed for: DateTime")
+    testDate := time.Now().Format("2006-01-02")
+    if fmt.Sprintf(sgf.DateTime, testDate) != fmt.Sprintf("DT[%s]", testDate) {
+        t.Fatalf("Formatting failed for: DateTime.")
     }
 }
 
