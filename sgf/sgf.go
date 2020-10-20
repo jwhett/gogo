@@ -33,7 +33,8 @@ const (
     // PlayerWhite is the White player's name.
     PlayerWhite = "PW[%s]"
     // Result describes the winner of the game and by
-    // what margin. (e.g. B+49.5 => Black wins by 49.5 points)
+    // what margin. (e.g. B+49.5 => Black wins by 49.5 points.
+    // W+Resign => White wins by resignation)
     Result = "RE[%s]"
     // Rules describes the counting rules.
     Rules = "RU[%s]"
