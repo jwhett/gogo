@@ -1,3 +1,6 @@
+// sgf describes the SGF file formatting and provides functions
+// for working with SGF data. SGF FF[4] is the current file format
+// as of this writing. See https://www.red-bean.com/sgf/.
 package sgf
 
 const (
