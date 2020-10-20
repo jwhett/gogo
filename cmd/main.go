@@ -3,13 +3,15 @@ package main
 import (
 	"fmt"
 
-	gb "github.com/jwhett/gogo"
+    "github.com/jwhett/gogo"
+	"github.com/jwhett/gogo/sgf"
 )
 
 func main() {
-	var board gb.Board
-	fmt.Printf("Black: %d\nWhite: %d\n", gb.BLACK, gb.WHITE)
-	board.PlayMove(gb.BLACK, "A1")
-	board.PlayMove(gb.WHITE, "S19")
+	var board gogo.Board
+	fmt.Printf("Black: %d\nWhite: %d\n", gogo.BLACK, gogo.WHITE)
+	board.PlayMove(gogo.BLACK, "A1")
+	board.PlayMove(gogo.WHITE, "S19")
 	board.Show()
+	fmt.Printf(sgf.Application, "GoGo")
 }
