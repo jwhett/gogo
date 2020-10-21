@@ -65,7 +65,7 @@ func (b *Board) Show() {
 // GetSpace attempts to return a Space from a given
 // set of coordinates.
 func (b *Board) GetSpace(coords string) (*Space, error) {
-	x, y, parseErr := ParseCoordinates(coords)
+	y, x, parseErr := ParseCoordinates(coords)
 	if parseErr != nil {
 		return nil, parseErr
 	}
