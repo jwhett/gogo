@@ -1,140 +1,135 @@
 package sgf_test
 
 import (
-    	"fmt"
+	"fmt"
 	"testing"
 	"time"
 
 	"github.com/jwhett/gogo/sgf"
 )
 
-// Test application format string
 func TestFormatting_AP(t *testing.T) {
-    if fmt.Sprintf(sgf.Application, "GoGo") != "AP[GoGo]" {
-        t.Fatal("Formatting failed for: Application")
-    }
-    t.Logf("Application: %s", fmt.Sprintf(sgf.Application, "GoGo"))
+	if fmt.Sprintf(sgf.Application, "GoGo") != "AP[GoGo]" {
+		t.Fatal("Formatting failed for: Application")
+	}
+	t.Logf("Application: %s", fmt.Sprintf(sgf.Application, "GoGo"))
 }
 
-// Test BlackPass
 func TestFormatting_BP(t *testing.T) {
-    if sgf.BlackPass != "B[]" {
-        t.Fatal("Formatting failed for: BlackPass")
-    }
-    t.Logf("BlackPass: %s", sgf.BlackPass)
+	if sgf.BlackPass != "B[]" {
+		t.Fatal("Formatting failed for: BlackPass")
+	}
+	t.Logf("BlackPass: %s", sgf.BlackPass)
 }
 
-// Test BlackRank
 func TestFormatting_BR(t *testing.T) {
-    if fmt.Sprintf(sgf.BlackRank, "9d") != "BR[9d]" {
-        t.Fatal("Formatting failed for: BlackRank")
-    }
-    t.Logf("BlackRank: %s", fmt.Sprintf(sgf.BlackRank, "9d"))
+	if fmt.Sprintf(sgf.BlackRank, "9d") != "BR[9d]" {
+		t.Fatal("Formatting failed for: BlackRank")
+	}
+	t.Logf("BlackRank: %s", fmt.Sprintf(sgf.BlackRank, "9d"))
 }
 
-// Test Comment
 func TestFormatting_C(t *testing.T) {
-    if fmt.Sprintf(sgf.Comment, "Testing") != "C[Testing]" {
-        t.Fatal("Formatting failed for: Comment")
-    }
+	if fmt.Sprintf(sgf.Comment, "Testing") != "C[Testing]" {
+		t.Fatal("Formatting failed for: Comment")
+	}
 }
 
-// Test DateTime
 func TestFormatting_DT(t *testing.T) {
-    testDate := time.Now().Format("2006-01-02")
-    if fmt.Sprintf(sgf.DateTime, testDate) != fmt.Sprintf("DT[%s]", testDate) {
-        t.Fatalf("Formatting failed for: DateTime.")
-    }
+	testDate := time.Now().Format("2006-01-02")
+	if fmt.Sprintf(sgf.DateTime, testDate) != fmt.Sprintf("DT[%s]", testDate) {
+		t.Fatalf("Formatting failed for: DateTime.")
+	}
 }
 
-// Test FileFormat
 func TestFormatting_FF(t *testing.T) {
-    if fmt.Sprintf(sgf.FileFormat, 4) != "FF[4]" {
-        t.Fatal("Formatting failed for: FileFormat")
-    }
+	if fmt.Sprintf(sgf.FileFormat, 4) != "FF[4]" {
+		t.Fatal("Formatting failed for: FileFormat")
+	}
 }
 
-// Test Game
 func TestFormatting_GM(t *testing.T) {
-    if sgf.Game != "GM[1]" {
-        t.Fatal("Formatting failed for: Game")
-    }
+	if fmt.Sprintf(sgf.Game, 1) != "GM[1]" {
+		t.Fatal("Formatting failed for: Game")
+	}
 }
 
-// Test GameName
 func TestFormatting_GN(t *testing.T) {
-    if fmt.Sprintf(sgf.GameName, "Testing") != "GN[Testing]" {
-        t.Fatal("Formatting failed for: GameName")
-    }
+	if fmt.Sprintf(sgf.GameName, "Testing") != "GN[Testing]" {
+		t.Fatal("Formatting failed for: GameName")
+	}
 }
 
-// Test Komi
 func TestFormatting_KM(t *testing.T) {
-    if fmt.Sprintf(sgf.Komi, 6.55) != "KM[6.5]" {
-        t.Fatal("Formatting failed for: Komi")
-    }
+	if fmt.Sprintf(sgf.Komi, 6.55) != "KM[6.5]" {
+		t.Fatal("Formatting failed for: Komi")
+	}
 }
 
-// Test PlayerBlack
 func TestFormatting_PB(t *testing.T) {
-    if fmt.Sprintf(sgf.PlayerBlack, "Testing") != "PB[Testing]" {
-        t.Fatal("Formatting failed for: PlayerBlack")
-    }
+	if fmt.Sprintf(sgf.PlayerBlack, "Testing") != "PB[Testing]" {
+		t.Fatal("Formatting failed for: PlayerBlack")
+	}
 }
 
-// Test Place
 func TestFormatting_PC(t *testing.T) {
-    if fmt.Sprintf(sgf.Place, "GoGo") != "PC[GoGo]" {
-        t.Fatal("Formatting failed for: Place")
-    }
+	if fmt.Sprintf(sgf.Place, "GoGo") != "PC[GoGo]" {
+		t.Fatal("Formatting failed for: Place")
+	}
 }
 
-// Test PlayerWhite
 func TestFormatting_PW(t *testing.T) {
-    if fmt.Sprintf(sgf.PlayerWhite, "Testing") != "PW[Testing]" {
-        t.Fatal("Formatting failed for: PlayerWhite")
-    }
+	if fmt.Sprintf(sgf.PlayerWhite, "Testing") != "PW[Testing]" {
+		t.Fatal("Formatting failed for: PlayerWhite")
+	}
 }
 
-// Test Result
 func TestFormatting_RE(t *testing.T) {
-    if fmt.Sprintf(sgf.Result, "B+49.5") != "RE[B+49.5]" {
-        t.Fatal("Formatting failed for: Result")
-    }
+	if fmt.Sprintf(sgf.Result, "B+49.5") != "RE[B+49.5]" {
+		t.Fatal("Formatting failed for: Result")
+	}
 }
 
-// Test Rules
 func TestFormatting_RU(t *testing.T) {
-    if fmt.Sprintf(sgf.Rules, "Japanese") != "RU[Japanese]" {
-        t.Fatal("Formatting failed for: Rules")
-    }
+	if fmt.Sprintf(sgf.Rules, "Japanese") != "RU[Japanese]" {
+		t.Fatal("Formatting failed for: Rules")
+	}
 }
 
-// Test Source
 func TestFormatting_SO(t *testing.T) {
-    if fmt.Sprintf(sgf.Source, "Testing") != "SO[Testing]" {
-        t.Fatal("Formatting failed for: Source")
-    }
+	if fmt.Sprintf(sgf.Source, "Testing") != "SO[Testing]" {
+		t.Fatal("Formatting failed for: Source")
+	}
 }
 
-// Test Size
 func TestFormatting_SZ(t *testing.T) {
-    if fmt.Sprintf(sgf.Size, 19) != "SZ[19]" {
-        t.Fatal("Formatting failed for: Size")
-    }
+	if fmt.Sprintf(sgf.Size, 19) != "SZ[19]" {
+		t.Fatal("Formatting failed for: Size")
+	}
 }
 
-// Test WhitePass
 func TestFormatting_WP(t *testing.T) {
-    if sgf.WhitePass != "W[]" {
-        t.Fatal("Formatting failed for: WhitePass")
-    }
+	if sgf.WhitePass != "W[]" {
+		t.Fatal("Formatting failed for: WhitePass")
+	}
 }
 
-
-// Test WhiteRank
 func TestFormatting_WR(t *testing.T) {
-    if fmt.Sprintf(sgf.WhiteRank, "9d") != "WR[9d]" {
-        t.Fatal("Formatting failed for: WhiteRank")
-    }
+	if fmt.Sprintf(sgf.WhiteRank, "9d") != "WR[9d]" {
+		t.Fatal("Formatting failed for: WhiteRank")
+	}
+}
+
+func TestHeader(t *testing.T) {
+	header := sgf.Header()
+	if header != "(;FF[4]GM[1]SZ[19]AP[GoGo]" {
+		t.Fatalf("Failed SGF header generation. Got: %s", header)
+	}
+}
+
+func TestEmitMove(t *testing.T) {
+	move := sgf.EmitMove(1, 4, 4)
+	if move != ";B[dd]" {
+		t.Fatalf("Failed to EmitMove. Wanted: 'B[dd];', Got: '%s'", move)
+	}
 }

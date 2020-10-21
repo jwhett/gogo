@@ -47,9 +47,9 @@ func TestRow(t *testing.T) {
 }
 
 func TestParseCoordinates_Simple(t *testing.T) {
-	x, y, err := gogo.ParseCoordinates("A1")
+	x, y, err := gogo.ParseCoordinates("a1")
 	if err != nil {
-		t.Fatalf("Error while parsing A1: %v", err)
+		t.Fatalf("Error while parsing a1: %v", err)
 	}
 	if x != 1 {
 		t.Fatalf("Failed to map A to 1. Got: %d", x)
@@ -60,12 +60,12 @@ func TestParseCoordinates_Simple(t *testing.T) {
 }
 
 func TestParseCoordinates_Complex(t *testing.T) {
-	x, y, err := gogo.ParseCoordinates("S19")
+	x, y, err := gogo.ParseCoordinates("s19")
 	if err != nil {
-		t.Fatalf("Error while parsing S19: %v", err)
+		t.Fatalf("Error while parsing s19: %v", err)
 	}
 	if x != 19 {
-		t.Fatalf("Failed to map S to 19. Got: %d", x)
+		t.Fatalf("Failed to map s to 19. Got: %d", x)
 	}
 	if y != 19 {
 		t.Fatalf("Failed to properly set y coord to 19. Got: %d", y)
@@ -73,7 +73,7 @@ func TestParseCoordinates_Complex(t *testing.T) {
 }
 
 func TestParseCoordinates_OOB(t *testing.T) {
-	_, _, err := gogo.ParseCoordinates("T20")
+	_, _, err := gogo.ParseCoordinates("t20")
 	if err == nil {
 		t.Fatal("Didn't fail when out of bounds")
 	}
@@ -88,9 +88,9 @@ func TestBoard(t *testing.T) {
 
 func TestBoard_GetSpace(t *testing.T) {
 	var b gogo.Board
-	s, err := b.GetSpace("A1")
+	s, err := b.GetSpace("a1")
 	if err != nil {
-		t.Fatalf("Failed to get space at A1")
+		t.Fatalf("Failed to get space at a1")
 	}
 	if fmt.Sprintf("%T", s) != "*gogo.Space" {
 		t.Fatalf("Failed to return a Space - got %T instead", s)
@@ -99,7 +99,7 @@ func TestBoard_GetSpace(t *testing.T) {
 
 func TestBoard_PlayMove(t *testing.T) {
 	var b gogo.Board
-	coords := "A1"
+	coords := "a1"
 	moveErr := b.PlayMove(gogo.BLACK, coords)
 	if moveErr != nil {
 		t.Fatalf("Failed to play move at %s. Error: %v", coords, moveErr)
