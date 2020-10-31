@@ -47,11 +47,11 @@ func (s *Space) Occupy(p Player) error {
 }
 
 func (r Row) String() string {
-	spaces := ""
-	for _, s := range r.Spaces {
-		spaces += s.String()
+	spaces := make([]string, 19)
+	for i, s := range r.Spaces {
+		spaces[i] = s.String()
 	}
-	return spaces
+	return strings.Join(spaces, " ")
 }
 
 func (s Space) String() string {
@@ -63,11 +63,11 @@ func (s Space) String() string {
 
 // Show will print the state of the Board.
 func (b *Board) Show() {
-	fmt.Println("   ABCDEFGHIJKLMNOPQRS")
+	fmt.Println("   A B C D E F G H I J K L M N O P Q R S")
 	for i := 18; i >= 0; i-- {
 		fmt.Printf("%2d|%v|%2d\n", i+1, b.Rows[i], i+1)
 	}
-	fmt.Println("   ABCDEFGHIJKLMNOPQRS")
+	fmt.Println("   A B C D E F G H I J K L M N O P Q R S")
 }
 
 // GetSpace attempts to return a Space from a given
